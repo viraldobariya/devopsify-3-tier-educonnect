@@ -1,0 +1,2 @@
+backend:
+  image: viraldobariya33/edu-backend:1.0.0

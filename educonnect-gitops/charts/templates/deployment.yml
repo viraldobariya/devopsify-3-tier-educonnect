@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: backend-deployment
+  namespace: backend
+
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: backend
+  template:
+    metadata:
+      labels:
+        app: backend
+    spec:
+      containers:
+        # - image: {{ .Values.backend.image}}
+        - image: "viraldobariya33/edu-backend:1.2.0"
+          name: "backend-container"
+          ports:
+            - containerPort: 8080
+          envFrom:
+            - secretRef:
+                name: sm-backend-secret
+            - secretRef:
+                name: ps-backend-secret
