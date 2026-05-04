@@ -98,7 +98,7 @@ Provisioned resources:
 
 # 📦 Kubernetes Setup
 
-* Deployments (Frontend & Backend)
+* Deployments (Backend)
 * Services (ClusterIP / NodePort)
 * Ingress (AWS ALB)
 * ConfigMaps & Secrets
