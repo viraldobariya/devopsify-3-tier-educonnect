@@ -1,0 +1,4 @@
+backend:
+  image:
+    repository: viraldobariya33/edu-backend
+    tag: "backend-8ef1766"

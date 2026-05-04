@@ -1,0 +1,39 @@
+# EKS-specific configuration
+kubeEtcd:
+  enabled: false
+kubeControllerManager:
+  enabled: false
+kubeScheduler:
+  enabled: false
+
+# Prometheus
+prometheus:
+  prometheusSpec:
+    storageSpec:
+      volumeClaimTemplate:
+        spec:
+          storageClassName: gp3   # Match your storage class name
+          accessModes: ["ReadWriteOnce"]
+          resources:
+            requests:
+              storage: 10Gi
+    retention: 15d
+
+# Grafana
+grafana:
+  adminPassword: "admin123"
+  persistence:
+    enabled: true
+    type: pvc
+    storageClassName: gp3   # Match your storage class name
+    size: 5Gi
+  service:
+    type: LoadBalancer  # Creates an AWS ALB/NLB
+
+# Alertmanager (optional, disable to save resources)
+alertmanager:
+  enabled: false
+
+# Disable control plane components (not accessible in EKS)
+defaultRules:
+  create: false  # Optional: disable default Prometheus rules

@@ -1,0 +1,48 @@
+# Local .terraform directory
+.terraform/
+
+# Terraform state files
+*.tfstate
+*.tfstate.*
+
+# Crash logs
+crash.log
+
+# Sensitive variable files
+*.tfvars
+*.tfvars.json
+
+# Override files
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Terraform CLI config files
+.terraformrc
+terraform.rc
+
+# Plan output files
+*.tfplan
+
+# Lock file (OPTIONAL: usually commit this in team setups)
+# Comment this if you want to keep it in Git
+# .terraform.lock.hcl
+
+# Environment files
+.env
+.env.*
+
+# Logs
+*.log
+
+# Backup files
+*.backup
+
+# IDE files
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db

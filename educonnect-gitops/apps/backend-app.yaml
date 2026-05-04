@@ -1,0 +1,28 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+
+metadata:
+  name: backend-app
+
+spec:
+  project: default 
+
+  source:
+    repoURL: https://github.com/viraldobariya/educonnect-gitops
+    path: charts/backend
+    targetRevision: HEAD
+    helm:
+      valueFiles:
+        - values.yaml
+
+  destination:
+    namespace: backend
+    server: https://kubernetes.default.svc
+
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    
+    syncOptions:
+      - CreateNamespace=true

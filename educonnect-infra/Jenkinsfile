@@ -1,0 +1,61 @@
+pipeline{
+  agent any
+  stages{
+    stage('Github Clone'){
+      steps{
+        git branch: 'main', url: 'https://github.com/viraldobariya/educonnect-infra', credentialsId: 'git-infra-cred'
+      }
+    }
+    stage('Terraform Init'){
+      steps{
+        sh 'terraform init'
+      }
+    }
+    stage('Terraform validate'){
+      steps{
+        sh 'terraform validate'
+      }
+    }
+    stage('Terraform plan eks'){
+      steps{
+        sh 'terraform plan -target=module.eks-module -out=tfplan-eks'
+      }
+    }
+    stage('Manual approval eks'){
+      steps{
+        input message: 'Whether you want to continue with eks?'
+      }
+    }
+    stage('Terraform apply eks'){
+      steps{
+        sh 'terraform apply tfplan-eks'
+      }
+    }
+    stage('Terraform plan'){
+      steps{
+        sh 'terraform plan -out=tfplan'
+      }
+    }
+    stage('Manual approval'){
+      steps{
+        input message: 'Whether you want to continue?'
+      }
+    }
+    stage('Terraform apply'){
+      steps{
+        sh 'terraform apply tfplan'
+      }
+    }
+  }
+  post{
+    always{
+      echo 'pipeline completed'
+    }
+    success{
+      echo 'infra successfully applied'
+    }
+    failure{
+      echo 'infra failed to applied'
+    }
+  }
+}
