@@ -130,22 +130,6 @@ Provisioned resources:
 
 ---
 
-# 🧪 Testing Strategy
-
-## GitHub Actions
-
-* Unit tests
-* Static code analysis
-* Security scanning
-
-## Jenkins
-
-* Integration testing
-* API testing (Postman/Newman)
-* Performance testing (JMeter)
-
----
-
 # 🚀 Key DevOps Highlights
 
 * Multi-repo architecture with clear separation of concerns
