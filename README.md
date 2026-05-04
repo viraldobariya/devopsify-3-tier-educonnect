@@ -161,14 +161,6 @@ Provisioned resources:
 
 ---
 
-# ⚠️ Notes
-
-* Requires AWS account with proper IAM permissions
-* Ensure IRSA is configured for controllers
-* Use correct Helm versions for CRDs (External Secrets, ALB Controller)
-
----
-
 # 👨‍💻 Author
 
 **Viral Dobariya**
