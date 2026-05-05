@@ -4,8 +4,6 @@
 
 Transform a full-stack React.js + Spring Boot application into a **production-grade DevOps project** demonstrating CI/CD, GitOps, Infrastructure as Code, Security, and Monitoring.
 
-Target: **8–10 LPA DevOps roles (Ahmedabad-level companies)**
-
 ---
 
 # 🏗️ 1. Repository Structure (Multi-Repo Architecture)
